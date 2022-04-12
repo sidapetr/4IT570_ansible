@@ -1,18 +1,19 @@
-- name: Create new ec2 Instance
+- name: Create new EC2 instance
   hosts: localhost
   connection: local
 
   tasks:
-   - name: Launch EC2 Instance
-     ec2:
-       instance_type: t2.micro
-       image: ami-0c02fb55956c7d316
-       region: us-east-1
-       key_name: devops
-       vpc_subnet_id: subnet-075229b6700bd1994
-       assign_public_ip: yes
-       wait: yes
-       count: 1
-       aws_access_key: "{{access_key}}"
-       aws_secret_key: "{{secret_key}}"
-       security_token: "{{session_token}}"
+    - name: Launch EC2 Instance
+      ec2:
+        instance_type: t2.micro
+        image: ami-0c02fb55956c7d316
+        region: us-east-1
+        key_name: devops
+        vpc_subnet_id: subnet-0740d62f074b59f2a
+        assign_public_ip: yes
+        wait: yes
+        count: 1
+        group: eshop
+        aws_access_key: "{{access_key}}"
+        aws_secret_key: "{{secret_key}}"
+        security_token: "{{session_token}}"
